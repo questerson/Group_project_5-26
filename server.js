@@ -29,21 +29,68 @@ const server = http.createServer((req, res) => {
       else if(params['student'] != 'leon'){
         res.writeHead(200, {'Content-Type': 'application/json'});
         class Pokemon {
-          constructor(name, type) {
+          constructor(name, type, imageUrl) {
             this.name = name
             this.type = type
+            this.imageUrl = imageUrl 
           }
         }
-        const bulbasaur = new Pokemon('Bulbasaur', 'grass')
-        const squirtle = new Pokemon('Squirtle', 'water')
-        const charmander = new Pokemon('Charmander', 'fire')
-        let pokemons = [bulbasaur, squirtle, charmander]
+        const bulbasaur = new Pokemon('Bulbasaur', 'grass',  '/images/bulb.png')
+        const squirtle = new Pokemon('Squirtle', 'water',  '/images/')
+        const charmander = new Pokemon('Charmander', 'fire', '/images/char.png')
+        const blastoise = new Pokemon('Blastoise', 'water', '/images/blastoise.png')
+        const snorlax = new Pokemon('Snorlax', 'normal',  '/images/snorlax.png')
+        let pokemons = [bulbasaur, squirtle, charmander, blastoise, snorlax]
         let pokemon1 = pokemons[Math.floor(Math.random() * pokemons.length)]
-        res.end(JSON.stringify(pokemon1));
+        let pokemon2 = pokemons[Math.floor(Math.random() * pokemons.length)]
+
+
+        res.end(JSON.stringify(pokemons));
       }//student != leon
     }//student if
   }//else if
-  else if (page == '/css/style.css'){
+  else if (page == '/images/snorlax.png'){
+    fs.readFile('./images/snorlax.png', function(err, data) {
+      res.writeHead(200, {'Content-Type': 'image/png' });
+       res.write(data);
+      res.end();
+    });
+  }
+  else if (page == '/images/pika.png'){
+    fs.readFile('./images/pika.png', function(err, data) {
+      res.writeHead(200, {'Content-Type': 'image/png' });
+       res.write(data);
+      res.end();
+    });
+  }
+  else if (page == '/images/bulb.png'){
+    fs.readFile('./images/bulb.png', function(err, data) {
+      res.writeHead(200, {'Content-Type': 'image/png' });
+       res.write(data);
+      res.end();
+    });
+  }
+  else if (page == '/images/char.png'){
+    fs.readFile('./images/char.png', function(err, data) {
+      res.writeHead(200, {'Content-Type': 'image/png' });
+       res.write(data);
+      res.end();
+    });
+  }
+  else if (page == '/images/blastoise.png'){
+    fs.readFile('./images/blastoise.png', function(err, data) {
+      res.writeHead(200, {'Content-Type': 'image/png' });
+       res.write(data);
+      res.end();
+    });
+  }
+  else if (page == '/images/background.jpg'){
+    fs.readFile('./images/background.jpg', function(err, data) {
+      res.writeHead(200, {'Content-Type': 'image/jpg' });
+       res.write(data);
+      res.end();
+    });
+  }else if (page == '/css/style2.css'){
     fs.readFile('css/style.css', function(err, data) {
       res.write(data);
       res.end();
