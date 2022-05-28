@@ -9,7 +9,7 @@ async function makeReq(){
   console.log(data)
   
   pokemon = data
-
+  pokemonReset = JSON.stringify(pokemon)
   function getPokemon (poke ) {
     let random =[Math.round(Math.random() * (data.length-1))]
     pokemon1 = data[random]
@@ -39,7 +39,6 @@ async function makeReq(){
   //   }
   //   console.log(data)
   // })
-
   document.querySelector("#left-person").textContent = pokemon1.name
   document.querySelector("#image-left").src = pokemon1.imageUrl
   document.querySelector("#right-person").textContent = pokemon2.name
@@ -51,37 +50,56 @@ async function makeReq(){
   document.querySelector('#fightMe').addEventListener('click', fight)
   
 
-
+  let round = 0
   function fight() {
-    if(Math.round(Math.random()*1) == 0){
+    if (pokemon.length === 0){
+      document.querySelector("#title").innerText = `${winner.name} Wins!`
+      
+      document.querySelector("#right-person").style.display = 'none'
+      document.querySelector("#image-right").style.display = 'none'
+      document.querySelector("#left-person").style.display = 'none'
+      document.querySelector("#image-left").style.display = 'none'
+      document.querySelector("#image-center").src = winner.imageUrl
+      document.querySelector("#image-center").style.display = "block"
+      document.querySelector("#fightMe").innerText = `reset`
+      reset ()
+    }
+    
+    else if(Math.round(Math.random()*1) == 0){
+      round += 1
       winner = pokemon1
-      let random =[Math.round(Math.random() * (data.length-1))]
+      let random =[Math.round(Math.random() * (pokemon.length-1))]
       pokemon2 = data[random]
       pokemon.splice(random, 1)
-    document.querySelector("#right-person").textContent = pokemon2.name
-    document.querySelector("#image-right").src = pokemon2.imageUrl
-    }else{
+      document.querySelector("#right-person").textContent = pokemon2.name
+      document.querySelector("#image-right").src = pokemon2.imageUrl
+      document.querySelector("#fightMe").innerText = `Round ${round}!`
+      document.querySelector("#title").innerText = `${winner.name} Wins round ${round}`
+   
+    } 
+    else  {
+      round += 1
       winner = pokemon2
-      let random =[Math.round(Math.random() * (data.length-1))]
+      let random =[Math.round(Math.random() * (pokemon.length-1))]
     pokemon1 = data[random]
     pokemon.splice(random, 1)
     document.querySelector("#left-person").textContent = pokemon1.name
     document.querySelector("#image-left").src = pokemon1.imageUrl
+    document.querySelector("#fightMe").innerText = `Round ${round}`
+    document.querySelector("#title").innerText = `${winner.name} Wins round ${round}`
     }
+   
+    }
+
     
+    function reset ( ) { 
+
+    }
+
   }
 
 
 
   
-}
-
-// This will remove elements wont work untill make rounds 
 
 
-  // document.querySelector('#fightMe').addEventListener('click', fight)
-
-
-  // function fight() {
-
-  // }
