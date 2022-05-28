@@ -22,8 +22,9 @@ async function makeReq(){
     pokemon2 = data[random]
     pokemon.splice(random, 1)
   }
-
   getPokemon2(pokemon)
+
+
   // let pokemon1 = data[Math.ceil(Math.random() * (data.length-1))]
   
   console.log(pokemon)
@@ -48,12 +49,26 @@ async function makeReq(){
 
   document.querySelector('#fightMe').style.display = 'block'
   document.querySelector('#fightMe').addEventListener('click', fight)
+  
+
 
   function fight() {
-
-     getPokemon2(pokemon)
+    if(Math.round(Math.random()*1) == 0){
+      winner = pokemon1
+      let random =[Math.round(Math.random() * (data.length-1))]
+      pokemon2 = data[random]
+      pokemon.splice(random, 1)
     document.querySelector("#right-person").textContent = pokemon2.name
     document.querySelector("#image-right").src = pokemon2.imageUrl
+    }else{
+      winner = pokemon2
+      let random =[Math.round(Math.random() * (data.length-1))]
+    pokemon1 = data[random]
+    pokemon.splice(random, 1)
+    document.querySelector("#left-person").textContent = pokemon1.name
+    document.querySelector("#image-left").src = pokemon1.imageUrl
+    }
+    
   }
 
 
