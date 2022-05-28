@@ -8,6 +8,7 @@ h1{
 body {
    background-image: url("/images/background.jpg"); 
    background-size: cover;
+   background-repeat: none;
    
 }
 #userName{
@@ -22,6 +23,8 @@ body {
   margin-left: 50%;
   margin-right: auto;
 }
-#image {
-  background:transparent
+#image-left {
+ 
+  width: 500px;
+  height: auto;
 }

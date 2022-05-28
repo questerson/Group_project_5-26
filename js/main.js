@@ -10,7 +10,7 @@ async function makeReq(){
   document.querySelector("#personName").textContent = data[2].name
   document.querySelector("#personStatus").textContent = data[1].name
   // document.querySelector("#image-left").scr = `'${data[2].imageUrl}'`
-  document.querySelector("#image").src = data[0].imageUrl
+  document.querySelector("#image-left").src = data[2].imageUrl
   
 
   // document.querySelector("#personOccupation").textContent = data.currentOccupation
