@@ -35,12 +35,13 @@ const server = http.createServer((req, res) => {
             this.imageUrl = imageUrl 
           }
         }
-        const bulbasaur = new Pokemon('Bulbasaur', 'grass',  '/images/bulb.png')
-        const squirtle = new Pokemon('Squirtle', 'water',  '/images/')
-        const charmander = new Pokemon('Charmander', 'fire', '/images/char.png')
-        const blastoise = new Pokemon('Blastoise', 'water', '/images/blastoise.png')
-        const snorlax = new Pokemon('Snorlax', 'normal',  '/images/snorlax.png')
-        let pokemons = [bulbasaur, squirtle, charmander, blastoise, snorlax]
+        const pikachu = new Pokemon('Pikachu', 'Electric',  '/images/pika.png')
+        const bulbasaur = new Pokemon('Bulbasaur', 'Grass',  '/images/bulb.png')
+        const squirtle = new Pokemon('Squirtle', 'Water',  '/images/squirt.png')
+        const charmander = new Pokemon('Charmander', 'Fire', '/images/char.png')
+        const blastoise = new Pokemon('Blastoise', 'Water', '/images/blastoise.png')
+        const snorlax = new Pokemon('Snorlax', 'Normal',  '/images/snorlax.png')
+        let pokemons = [pikachu, bulbasaur, squirtle, charmander, blastoise, snorlax]
         let pokemon1 = pokemons[Math.floor(Math.random() * pokemons.length)]
         let pokemon2 = pokemons[Math.floor(Math.random() * pokemons.length)]
 
@@ -51,6 +52,13 @@ const server = http.createServer((req, res) => {
   }//else if
   else if (page == '/images/snorlax.png'){
     fs.readFile('./images/snorlax.png', function(err, data) {
+      res.writeHead(200, {'Content-Type': 'image/png' });
+       res.write(data);
+      res.end();
+    });
+  }
+  else if (page == '/images/squirt.png'){
+    fs.readFile('./images/squirt.png', function(err, data) {
       res.writeHead(200, {'Content-Type': 'image/png' });
        res.write(data);
       res.end();

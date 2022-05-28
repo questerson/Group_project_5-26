@@ -19,35 +19,40 @@ body {
   display: block;
   visibility: hidden;
 }
+
 #clickMe { 
-  width: 400px;
+  width: 300px;
   font-size: 50px;
   color: greenyellow;
   background-color: brown;
-  margin-left: 50%;
-  margin-right: auto;
-}
-#image-left {
- 
-  width: 500px;
-  height: auto;
-}
-#image-right {
- 
-  width: 500px;
-  height: auto;
-}
-#right-box{
-float: right;
-}
-#left-box{
-float:left;
+  margin-left: 42%;
+  
 }
 
+#image-left {
+  aspect-ratio: 1/1 ;
+  width: 500px;
+  height: auto;
+}
+
+#left-box{
+  float:left;
+  }
+
 #left-person {
-  font-size: 70px;
-  color: brown;
-  text-align: center;
+    font-size: 70px;
+    color: brown;
+    text-align: center;
+  }
+
+#image-right {
+ aspect-ratio: 1/1 ;
+  width: 500px;
+  height: auto;
+}
+
+#right-box{
+float: right;
 }
 
 #right-person {
