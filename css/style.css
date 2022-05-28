@@ -28,6 +28,14 @@ body {
   margin-left: 42%;
   
 }
+#fightMe { 
+  width: 300px;
+  font-size: 50px;
+  color: greenyellow;
+  background-color: brown;
+  margin-left: 42%;
+  display: none;
+}
 
 #image-left {
   aspect-ratio: 1/1 ;
