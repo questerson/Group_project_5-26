@@ -62,7 +62,7 @@ async function makeReq(){
       document.querySelector("#image-center").src = winner.imageUrl
       document.querySelector("#image-center").style.display = "block"
       document.querySelector("#fightMe").innerText = `reset`
-      reset ()
+      document.querySelector('#fightMe').addEventListener('click', reset) 
     }
     
     else if(Math.round(Math.random()*1) == 0){
@@ -93,7 +93,7 @@ async function makeReq(){
 
     
     function reset ( ) { 
-
+      location.reload();
     }
 
   }
