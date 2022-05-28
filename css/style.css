@@ -4,6 +4,10 @@ h1{
   margin-right: auto;
   text-align: center;
   font-size: 144px;
+  background-color: aliceblue;
+  border-radius: 39px;
+  width: 1200px;
+  
 }
 body {
    background-image: url("/images/background.jpg"); 
@@ -27,4 +31,28 @@ body {
  
   width: 500px;
   height: auto;
+}
+#image-right {
+ 
+  width: 500px;
+  height: auto;
+}
+#right-box{
+float: right;
+}
+#left-box{
+float:left;
+}
+
+#left-person {
+  font-size: 70px;
+  color: brown;
+  text-align: center;
+}
+
+#right-person {
+  font-size: 70px;
+  color: brown;
+  text-align: center;
+  text-shadow: 40px;
 }

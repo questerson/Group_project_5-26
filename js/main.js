@@ -7,11 +7,11 @@ async function makeReq(){
   const data = await res.json()
 
   console.log(data);
-  document.querySelector("#personName").textContent = data[2].name
-  document.querySelector("#personStatus").textContent = data[1].name
+  document.querySelector("#right-person").textContent = data[2].name
+  document.querySelector("#left-person").textContent = data[3].name
   // document.querySelector("#image-left").scr = `'${data[2].imageUrl}'`
   document.querySelector("#image-left").src = data[2].imageUrl
-  
+  document.querySelector("#image-right").src = data[3].imageUrl
 
   // document.querySelector("#personOccupation").textContent = data.currentOccupation
 }
