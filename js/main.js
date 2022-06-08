@@ -3,7 +3,8 @@ document.querySelector('#clickMe').addEventListener('click', makeReq)
 
 async function makeReq(){
   const userName = document.querySelector("#userName").value;
-  const res = await fetch(`/api?student=${userName}`)
+
+  const res = await fetch(`https://poke-ap.herokuapp.com/api`)
   const data = await res.json()
 
   console.log(data)
@@ -39,10 +40,14 @@ async function makeReq(){
   //   }
   //   console.log(data)
   // })
+
+
+
+
   document.querySelector("#left-person").textContent = pokemon1.name
-  document.querySelector("#image-left").src = pokemon1.imageUrl
+  document.querySelector("#image-left").src = `https://poke-ap.herokuapp.com${pokemon1.imageUrl}`
   document.querySelector("#right-person").textContent = pokemon2.name
-  document.querySelector("#image-right").src = pokemon2.imageUrl
+  document.querySelector("#image-right").src = `https://poke-ap.herokuapp.com${pokemon2.imageUrl}`
 
   document.querySelector('#clickMe').style.display = 'none'
 
@@ -59,7 +64,7 @@ async function makeReq(){
       document.querySelector("#image-right").style.display = 'none'
       document.querySelector("#left-person").style.display = 'none'
       document.querySelector("#image-left").style.display = 'none'
-      document.querySelector("#image-center").src = winner.imageUrl
+      document.querySelector("#image-center").src = `https://poke-ap.herokuapp.com${winner.imageUrl}`
       document.querySelector("#image-center").style.display = "block"
       document.querySelector("#fightMe").innerText = `reset`
       document.querySelector('#fightMe').addEventListener('click', reset) 
@@ -72,7 +77,7 @@ async function makeReq(){
       pokemon2 = data[random]
       pokemon.splice(random, 1)
       document.querySelector("#right-person").textContent = pokemon2.name
-      document.querySelector("#image-right").src = pokemon2.imageUrl
+      document.querySelector("#image-right").src = `https://poke-ap.herokuapp.com${pokemon2.imageUrl}`
       document.querySelector("#fightMe").innerText = `Round ${round}!`
       document.querySelector("#title").innerText = `${winner.name} Wins round ${round}`
    
@@ -84,7 +89,7 @@ async function makeReq(){
     pokemon1 = data[random]
     pokemon.splice(random, 1)
     document.querySelector("#left-person").textContent = pokemon1.name
-    document.querySelector("#image-left").src = pokemon1.imageUrl
+    document.querySelector("#image-left").src = `https://poke-ap.herokuapp.com${pokemon1.imageUrl}`
     document.querySelector("#fightMe").innerText = `Round ${round}`
     document.querySelector("#title").innerText = `${winner.name} Wins round ${round}`
     }
@@ -95,11 +100,8 @@ async function makeReq(){
     function reset ( ) { 
       location.reload();
     }
-
+    
+   
   }
-
-
-
   
-
 
